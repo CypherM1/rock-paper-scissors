@@ -1,3 +1,4 @@
+// Function that uses a random number generator to help the computer make a choice.
 function getComputerChoice() {
     let randomNum = Math.floor(Math.random() * 3);
     switch (randomNum) {
@@ -10,9 +11,11 @@ function getComputerChoice() {
     };
 };
 
+//Initial Score for computer and player.
 let playerScore = 0;
 let computerScore = 0;
 
+//Function that decides and returns who wins and loses. Then increases the score by 1 or 0.
 function playRound (playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
         return "This Round is a Tie!";
@@ -47,12 +50,15 @@ function playRound (playerSelection, computerSelection) {
     };
 };
 
+//function that starts the game and plays through 5 rounds.
 function game () {
+    // plays 5 rounds and logs who wins each round.
     for (i = 1; i <= 5; i++) {
         const playerSelection = prompt("Choose Rock, Paper, Scissors").toLowerCase();
         const computerSelection = getComputerChoice();
         console.log(playRound(playerSelection, computerSelection));
     };
+    //At the end of 5 rounds, the below code logs the winner of the game.
     if (playerScore > computerScore) {
         console.log("You won the game - Player: " + playerScore + " Computer: " + computerScore);
     } else if (playerScore < computerScore) {
@@ -62,4 +68,5 @@ function game () {
     };
 };
 
+//This kicks off the function to start the game.
 console.log(game());
