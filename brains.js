@@ -1,30 +1,4 @@
-//Prompt the user to type in Rock, Paper, or Scissors. Make case-insensitive
-//use prompt()
-
-const playerPrompt = prompt("Type in Rock, Paper, or Scissors");
-
-//convert playerPromt to all lower case.
-//Check that user chose Rock, Paper, or Scissors.
-//Set Variable playerSelection().
-const playerSelection = answerCheck();
-
-function answerCheck() {
-    const  setLowerCase = playerPrompt.toLowerCase();
-    if (setLowerCase === "rock" || setLowerCase === "paper" || setLowerCase === "scissors") {
-        console.log("Let us see who wins...")
-    } else {
-        alert("That was not one of the options. Refresh the page and try again");
-    }
-    return setLowerCase;
-};
-
-//Have Computer pick Rock, Paper, or Scissors at random.
-//Set Variable computerSelection()
-
-const computerSelection = getRandomChoice();
-console.log(computerSelection);
-
-function getRandomChoice() {
+function getComputerChoice() {
     let randomNum = Math.floor(Math.random() * 3);
     switch (randomNum) {
       case 0:
@@ -34,40 +8,59 @@ function getRandomChoice() {
       case 2:
         return 'scissors';
     };
-  };
-
-//Take playerSelection and computerSelection and determine who won.
-//playRound()
+};
 
 let playerScore = 0;
 let computerScore = 0;
-let roundWinner = " ";
-
-playRound(playerSelection, computerSelection);
 
 function playRound (playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
-        roundWinner = "tie";
+        return "This Round is a Tie!";
     }
-    if (
-        (playerSelection === "rock" && computerSelection === "scissors") ||
-        (playerSelection === "scissors" && computerSelection === "paper") ||
-        (playerSelection === "paper" && computerSelection === "rock")
-    ) {
-        playerScore++
-        roundWinner = "player";
+    else if (playerSelection === "rock" && computerSelection === "scissors") {
+        playerScore++;
+        return "You Win! Rock beats Scissors";
     }
-    if (
-        (computerSelection === "rock" && playerSelection === "scissors") ||
-        (computerSelection === "scissors" && playerSelection === "paper") ||
-        (computerSelection === "paper" && playerSelection === "rock")
-      ) {
+    else if (playerSelection === "scissors" && computerSelection === "paper") {
+        playerScore++;
+        return "You Win! Scissors beats Paper";
+    }
+    else if (playerSelection === "paper" && computerSelection === "rock") {
+        playerScore++;
+        return "You Win! Paper beats Rock";
+    }
+    else if (computerSelection === "rock" && playerSelection === "scissors") {
         computerScore++;
-        roundWinner = "computer";
-      }
-}
+        return "You Lose! Rock beats Scissors";
+    }
+    else if (computerSelection === "scissors" && playerSelection === "paper") {
+        computerScore++;
+        return "You Lose! Scissors beats Paper";
+    }
+    else if (computerSelection === "paper" && playerSelection === "rock") {
+        computerScore++;
+        return "You Lose! Paper beats Rock";
+    } 
+    else if (playerSelection != "rock" || playerSelection != "paper" || playerSelection != "scissors") {
+        computerScore++;
+        return "You Lose! You cant spell";
+    };
+};
 
-console.log(playerScore, computerScore, roundWinner);
+function game () {
+    for (i = 1; i <= 5; i++) {
+        const playerSelection = prompt("Choose Rock, Paper, Scissors").toLowerCase();
+        const computerSelection = getComputerChoice();
+        playRound(playerSelection, computerSelection);
+        console.log(playRound(playerSelection, computerSelection));
+    };
+    if (playerScore > computerScore) {
+        console.log("You won the game - Player: " + playerScore + " Computer: " + computerScore);
+    } else if (playerScore < computerScore) {
+        console.log("You lost the game - Player: " + playerScore + " Computer: " + computerScore);
+    }else {
+        console.log("It was a tie - Player: " + playerScore + " Computer: " + computerScore);
+    };
+};
 
-//Play a 5 round game that keeps score and reports a winner or loser at the end.
-//game()...... use console.log() to display winner or loser.
+console.log(game());
