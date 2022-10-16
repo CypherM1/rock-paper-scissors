@@ -1,3 +1,15 @@
+const btnRock = document.getElementById('rock');
+const btnPaper = document.getElementById('paper');
+const btnScissors = document.getElementById('scissors');
+const btnReset = document.getElementById('reset');
+const scoreArea = document.getElementById('scoreArea');
+const roundWinner = document.getElementById('roundWinner');
+
+btnRock.addEventListener('click', () => game('rock'))
+btnPaper.addEventListener('click', () => game('paper'))
+btnScissors.addEventListener('click', () => game('scissors'))
+btnReset.addEventListener('click', () => gameReset());
+
 // Function that uses a random number generator to help the computer make a choice.
 function getComputerChoice() {
     let randomNum = Math.floor(Math.random() * 3);
@@ -14,6 +26,7 @@ function getComputerChoice() {
 //Initial Score for computer and player.
 let playerScore = 0;
 let computerScore = 0;
+scoreArea.textContent = 'Player: ' + playerScore + ' Computer: ' + computerScore;
 
 //Function that decides and returns who wins and loses. Then increases the score by 1 or 0.
 function playRound (playerSelection, computerSelection) {
@@ -44,34 +57,29 @@ function playRound (playerSelection, computerSelection) {
         computerScore++;
         return "You Lose! Paper beats Rock";
     } 
-    else if (playerSelection != "rock" || playerSelection != "paper" || playerSelection != "scissors") {
-        computerScore++;
-        return "You Lose! You cant spell";
+};
+
+//function that starts the game and plays till first person gets 5 points.
+function game (playerSelection) {
+    console.log(playerSelection);
+    const computerSelection = getComputerChoice();
+    roundWinner.textContent = (playRound(playerSelection, computerSelection));
+    scoreArea.textContent = 'Player: ' + playerScore + ' Computer: ' + computerScore;
+    if (playerScore == 5 && playerScore > computerScore) {
+        roundWinner.textContent = 'Player has won the game';
+        computerScore = 0;
+        playerScore = 0;
+    } else if (computerScore == 5 && computerScore > playerScore) {
+        roundWinner.textContent = 'Computer has won the game';
+        computerScore = 0;
+        playerScore = 0;
     };
 };
 
-//function that starts the game and plays through 5 rounds.
-function game () {
-    // plays 5 rounds and logs who wins each round.
-    for (i = 1; i <= 5; i++) {
-        const playerSelection = prompt("Choose Rock, Paper, Scissors").toLowerCase();
-        console.log(playerSelection);
-        const computerSelection = getComputerChoice();
-        console.log(playRound(playerSelection, computerSelection));
-    };
-    //At the end of 5 rounds, the below code logs the winner of the game.
-    if (playerScore > computerScore) {
-        console.log("You won the game - Player: " + playerScore + " Computer: " + computerScore);
-    } else if (playerScore < computerScore) {
-        console.log("You lost the game - Player: " + playerScore + " Computer: " + computerScore);
-    }else {
-        console.log("It was a tie - Player: " + playerScore + " Computer: " + computerScore);
-    };
-};
-
-//This kicks off the function to start the game.
-const buttonStart = document.getElementById('buttonStart');
-
-buttonStart.addEventListener('click', () => {
-    game();
-  });
+//Runs after Start Over btn is clicked.
+function gameReset () {
+    computerScore = 0;
+    playerScore = 0;
+    roundWinner.textContent = '';
+    scoreArea.textContent = 'Player: ' + playerScore + ' Computer: ' + computerScore;
+}
