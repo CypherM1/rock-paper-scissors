@@ -55,6 +55,7 @@ function game () {
     // plays 5 rounds and logs who wins each round.
     for (i = 1; i <= 5; i++) {
         const playerSelection = prompt("Choose Rock, Paper, Scissors").toLowerCase();
+        console.log(playerSelection);
         const computerSelection = getComputerChoice();
         console.log(playRound(playerSelection, computerSelection));
     };
@@ -69,4 +70,8 @@ function game () {
 };
 
 //This kicks off the function to start the game.
-console.log(game());
+const buttonStart = document.getElementById('buttonStart');
+
+buttonStart.addEventListener('click', () => {
+    game();
+  });
