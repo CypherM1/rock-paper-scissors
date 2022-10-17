@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RockPaperScissors!</title>
+    <link rel="stylesheet" href="./styles.css" />
     <link rel="shortcut icon" type="image/jpg" href="pics/RPSIcon.png"/>
     <script type="text/javascript" src="./brains.js" defer></script>
     <style>
@@ -12,14 +13,42 @@
     </style>
 </head>
 <body>
-    <h1>Rock Paper Scissors Game!</h1>
-    <p>In order to play for now you will need to open the browser console.</p>
-    <p>Right click and choose Inspect.</p>
-    <button id='rock' class="buttonSelect">Smash With Rock</button>
-    <button id='paper' class="buttonSelect">Cover With Paper</button>
-    <button id='scissors' class="buttonSelect">Cut With Scissors</button>
-    <button id='reset' class="buttonSelect">Start Over</button>
-    <div id='scoreArea'></div>
-    <div id='roundWinner'></div>
+    <header>
+        <h1 class='title'>Rock Paper Scissors Game!</h1>
+        <h2 class='subTitle'>A game to decide everything......</h2>
+
+        <p class='description'>The year is 3054 and the human population has almost withered. The decision to save or destroy whats left of the world lies in your HAND!</p>
+        <p class='description'>Click to choose Rock, Paper, or Scissors. First to 5 wins. Good Luck</p>
+    </header>
+
+    <div class='rpsOptions'>
+        <button id='rock' class="buttonSelect">
+            <img class='buttonPic' src='./pics/Rock.png' alt='Pic of a rock'/>
+            Smash With Rock
+        </button>
+        <button id='paper' class="buttonSelect">
+            <img class='buttonPic' src='./pics/Paper.png' alt='Pic of paper'/>
+            Cover With Paper
+        </button>
+        <button id='scissors' class="buttonSelect">
+            <img class='buttonPic' src='./pics/Scissors.png' alt='Pic of scissors'/>
+            Cut With Scissors
+        </button>
+    </div>
+
+    <div id='results'>
+        <div id='scoreArea'></div>
+        <div id='roundWinner'></div>
+    </div>
+
+    <div class='resetOption'>
+        If it feels like the pressure is too real, press the button below and try again.
+        <button id='reset' class="buttonSelect">Start Over</button>
+    </div>
+
+    <footer>
+        Created by CypherM1 year 2022
+    </footer>
+    
 </body>
 </html>

@@ -1,0 +1,105 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 80%;
+    margin: 0 auto;
+    color: white;
+    background-image: url('./pics/rpsBG.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+header {
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    border: 2px solid white;
+    border-radius: 0px 0px 5px 5px;
+}
+
+h1 {
+    font-size: 3em;
+}
+
+.description {
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.rpsOptions {
+    margin-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: 5px solid white;
+    border-radius: 5px;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: white;
+    color: black;
+    border: 5px solid black;
+}
+
+.resetOption {
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+.buttonPic {
+    height: 200px;
+    width: 200px;
+}
+
+#reset {
+    width: 200px;
+    font-size: 2em;
+}
+
+#results {
+    margin: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#scoreArea, #roundWinner {
+    font-size: 2em;
+    background-color: black;
+    width: 70%;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+footer {
+    height: 50px;
+    margin-top: 75px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 2px solid white;
+    border-radius: 5px 5px 0px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
