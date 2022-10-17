@@ -66,11 +66,11 @@ function game (playerSelection) {
     roundWinner.textContent = (playRound(playerSelection, computerSelection));
     scoreArea.textContent = 'Player: ' + playerScore + ' Computer: ' + computerScore;
     if (playerScore == 5 && playerScore > computerScore) {
-        roundWinner.textContent = 'Player has won the game';
+        roundWinner.textContent = 'Player wins Earth is saved!';
         computerScore = 0;
         playerScore = 0;
     } else if (computerScore == 5 && computerScore > playerScore) {
-        roundWinner.textContent = 'Computer has won the game';
+        roundWinner.textContent = 'Alien computer wins goodbye Earth';
         computerScore = 0;
         playerScore = 0;
     };
