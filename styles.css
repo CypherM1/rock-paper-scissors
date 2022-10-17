@@ -9,6 +9,7 @@ body {
     background-image: url('./pics/rpsBG.png');
     background-repeat: no-repeat;
     background-size: cover;
+    font-family: 'Bebas Neue', cursive;
 }
 
 header {
@@ -25,7 +26,6 @@ h1 {
 
 .description {
     font-size: 1.1em;
-    font-weight: bold;
 }
 
 .rpsOptions {
@@ -46,7 +46,6 @@ button {
     border: 5px solid white;
     border-radius: 5px;
     font-size: 2em;
-    font-weight: bold;
 }
 
 button:hover {
@@ -76,7 +75,6 @@ button:hover {
 }
 
 #resetText {
-    font-weight: bold;
     font-size: 1.2em;
 }
 
@@ -87,6 +85,11 @@ button:hover {
     justify-content: center;
     align-items: center;
     gap: 10px;
+}
+
+#scoreArea{
+    display: flex;
+    justify-content: space-evenly;
 }
 
 #scoreArea, #roundWinner {

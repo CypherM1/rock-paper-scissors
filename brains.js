@@ -1,9 +1,9 @@
 const btnRock = document.getElementById('rock');
 const btnPaper = document.getElementById('paper');
 const btnScissors = document.getElementById('scissors');
-const btnAny = document.querySelectorAll('.buttonSelect');
 const btnReset = document.getElementById('reset');
-const scoreArea = document.getElementById('scoreArea');
+const scoreArea1 = document.getElementById('scoreArea1');
+const scoreArea2 = document.getElementById('scoreArea2');
 const roundWinner = document.getElementById('roundWinner');
 
 btnRock.addEventListener('click', () => game('rock'))
@@ -27,7 +27,8 @@ function getComputerChoice() {
 //Initial Score for computer and player.
 let playerScore = 0;
 let computerScore = 0;
-scoreArea.textContent = 'Player: ' + playerScore + ' Computer: ' + computerScore;
+scoreArea1.textContent = 'Player: ' + playerScore;
+scoreArea2.textContent = 'Computer: ' + computerScore;
 
 //Function that decides and returns who wins and loses. Then increases the score by 1 or 0.
 function playRound (playerSelection, computerSelection) {
@@ -65,7 +66,8 @@ function game (playerSelection) {
     console.log(playerSelection);
     const computerSelection = getComputerChoice();
     roundWinner.textContent = (playRound(playerSelection, computerSelection));
-    scoreArea.textContent = 'Player: ' + playerScore + ' Computer: ' + computerScore;
+    scoreArea1.textContent = ('Player: ' + playerScore);
+    scoreArea2.textContent = ('Computer: ' + computerScore);
     if (playerScore == 5 && playerScore > computerScore) {
         roundWinner.textContent = 'Player wins Earth is saved!';
         roundWinner.style.backgroundColor = 'green';
@@ -88,7 +90,7 @@ function gameReset () {
     computerScore = 0;
     playerScore = 0;
     roundWinner.textContent = '';
-    scoreArea.textContent = 'Player: ' + playerScore + ' Computer: ' + computerScore;
+    scoreArea.textContent = 'Player: ' + playerScore + '  ' + 'Computer: ' + computerScore;
     roundWinner.style.backgroundColor = 'black';
     window.location.reload()
 }
