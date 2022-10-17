@@ -1,6 +1,7 @@
 const btnRock = document.getElementById('rock');
 const btnPaper = document.getElementById('paper');
 const btnScissors = document.getElementById('scissors');
+const btnAny = document.querySelectorAll('.buttonSelect');
 const btnReset = document.getElementById('reset');
 const scoreArea = document.getElementById('scoreArea');
 const roundWinner = document.getElementById('roundWinner');
@@ -67,14 +68,20 @@ function game (playerSelection) {
     scoreArea.textContent = 'Player: ' + playerScore + ' Computer: ' + computerScore;
     if (playerScore == 5 && playerScore > computerScore) {
         roundWinner.textContent = 'Player wins Earth is saved!';
+        roundWinner.style.backgroundColor = 'green';
         computerScore = 0;
         playerScore = 0;
+        document.getElementById('container').innerText = '';
     } else if (computerScore == 5 && computerScore > playerScore) {
         roundWinner.textContent = 'Alien computer wins goodbye Earth';
+        roundWinner.style.backgroundColor = '#a60303';
         computerScore = 0;
         playerScore = 0;
+        document.getElementById('container').innerText = '';
     };
 };
+
+
 
 //Runs after Start Over btn is clicked.
 function gameReset () {
@@ -82,4 +89,6 @@ function gameReset () {
     playerScore = 0;
     roundWinner.textContent = '';
     scoreArea.textContent = 'Player: ' + playerScore + ' Computer: ' + computerScore;
+    roundWinner.style.backgroundColor = 'black';
+    window.location.reload()
 }
