@@ -56,10 +56,10 @@ button:hover {
 }
 
 .resetOption {
-    height: 100px;
+    height: 150px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-items: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.7);
     border: 2px solid white;
@@ -73,7 +73,11 @@ button:hover {
 
 #reset {
     width: 200px;
-    font-size: 2em;
+}
+
+#resetText {
+    font-weight: bold;
+    font-size: 1.2em;
 }
 
 #results {
@@ -94,7 +98,7 @@ button:hover {
 }
 
 footer {
-    height: 50px;
+    height: 25px;
     margin-top: 75px;
     background-color: rgba(0, 0, 0, 0.7);
     border: 2px solid white;
